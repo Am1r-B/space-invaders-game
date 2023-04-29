@@ -23,6 +23,12 @@ function draw() {
 
 draw();
 
+function remove() {
+  for (let i = 0; i < alienInvaders.length; i++) {
+    squares[alienInvaders[i]].classList.remove("invader");
+  }
+}
+
 squares[currentShooterIndex].classList.add("shooter");
 
 function moveShooter(e) {
@@ -37,3 +43,15 @@ function moveShooter(e) {
   squares[currentShooterIndex].classList.add("shooter");
 }
 document.addEventListener("keydown", moveShooter);
+
+function moveInvaders() {
+  remove();
+
+  for (let i = 0; i < alienInvaders.length; i++) {
+    alienInvaders[i]++;
+  }
+
+  draw();
+}
+
+setInterval(moveInvaders, 500);
