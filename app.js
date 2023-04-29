@@ -1,4 +1,5 @@
 const grid = document.querySelector(".grid");
+let currentShooterIndex = 202;
 
 const squares = [];
 
@@ -20,3 +21,5 @@ function draw() {
 }
 
 draw();
+
+squares[currentShooterIndex].classList.add("shooter");
