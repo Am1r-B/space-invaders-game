@@ -114,10 +114,7 @@ function shoot(e) {
     if (currentLaserIndex < 0) {
       clearInterval(laserId);
     } else {
-      squares[currentLaserIndex].classList.add("laser");
-
       if (squares[currentLaserIndex].classList.contains("invader")) {
-        squares[currentLaserIndex].classList.remove("laser");
         squares[currentLaserIndex].classList.remove("invader");
         squares[currentLaserIndex].classList.add("boom");
 
@@ -131,6 +128,8 @@ function shoot(e) {
         aliensRemoved.push(alienRemoved);
         results++;
         resultDisplay.innerHTML = results;
+      } else {
+        squares[currentLaserIndex].classList.add("laser");
       }
     }
   }
