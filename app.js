@@ -102,6 +102,17 @@ function shoot(e) {
     squares[currentLaserIndex].classList.remove("laser");
     currentLaserIndex -= width;
     squares[currentLaserIndex].classList.add("laser");
+
+    if (squares[currentLaserIndex].classList.contains("invader")) {
+      squares[currentLaserIndex].classList.remove("laser");
+      squares[currentLaserIndex].classList.add("boom");
+
+      setTimeout(
+        () => squares[currentLaserIndex].classList.remove("boom"),
+        300
+      );
+      clearInterval(laserId);
+    }
   }
 }
 
