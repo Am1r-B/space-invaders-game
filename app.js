@@ -6,6 +6,7 @@ let direction = 1;
 let invadersId;
 let goingRight = true;
 let aliensRemoved = [];
+let results = 0;
 
 const squares = [];
 
@@ -88,6 +89,11 @@ function moveInvaders() {
       clearInterval(invadersId);
     }
   }
+
+  if (aliensRemoved.length === alienInvaders.length) {
+    resultDisplay.innerHTML = "YOU WIN";
+    clearInterval(invadersId);
+  }
 }
 
 invadersId = setInterval(moveInvaders, 500);
@@ -119,6 +125,8 @@ function shoot(e) {
 
       const alienRemoved = alienInvaders.indexOf(currentLaserIndex);
       aliensRemoved.push(alienRemoved);
+      results++;
+      resultDisplay.innerHTML = results;
     }
   }
 }
